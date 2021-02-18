@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  cadastroclientes.webapp:
+    image: ${DOCKER_REGISTRY-}cadastroclienteswebapp
+    build:
+      context: .
+      dockerfile: CadastroClientes.WebApp/Dockerfile
+    depends_on:
+      - "cadastroclientes.webapi"
+
+  cadastroclientes.webapi:
+    image: ${DOCKER_REGISTRY-}cadastroclienteswebapi
+    build:
+      context: .
+      dockerfile: CadastroClientes/Dockerfile
